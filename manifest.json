@@ -1,0 +1,32 @@
+{
+    "name": "NCKU-GPA Calculator",
+    "version": "0.1.0",
+    "description": "It is a chrome extension that helps you calculate GPA in NCKU website",
+    "permissions": [
+        "tabs"
+    ],
+    "page_action": {
+        "default_icon" : "public/img/logo.png",
+        "default_title": "NCKU GPA calculator"
+    },
+    "icons": { 
+        "128": "public/img/ncku.png"
+    },
+    "background": {
+        "scripts": [
+            "public/js/background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://qrys.sso2.ncku.edu.tw/ncku/qrys05.asp*"
+            ],
+            "js": [
+                "public/js/jquery.min.js",
+                "public/js/main.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
